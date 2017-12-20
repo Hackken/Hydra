@@ -1,0 +1,34 @@
+= Hydra game
+---
+
+== Running
+`docker build -t hydra/game .`
+
+`docker run -t -i -p 8080:8080 hydra/game`
+---
+
+== TODOs
+
+1. github repo
+
+1. projekt
+	* tech stack? 
+
+1. launch game get method
+	* groovy //learning + fun
+
+1. static content
+	* background
+	* css
+
+1. dynamic content
+	* javascript ?with webpack / development without server restarts?
+	
+1. websocket communication with game 
+	*sock.js
+	*headless service
+	*replay scenario?
+
+1. pass request to wallet api
+	*groovy 
+	*pluggable wallet api / separate verticles

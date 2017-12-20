@@ -1,0 +1,16 @@
+*.log
+.DS_Store
+.gradle
+.classpath
+.project
+.settings
+.idea
+.vertx
+.yardoc
+.yardopts
+target
+test-results
+test-tmp
+*.iml
+*.class
+node_modules

@@ -1,2 +1,0 @@
-# Hydra
-Hydra Game
