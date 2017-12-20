@@ -5,14 +5,17 @@
 `docker build -t hydra/game .`
 
 `docker run -t -i -p 8080:8080 hydra/game`
----
 
 == TODOs
 
-1. github repo
+1. move to LL repo
 
-1. projekt
-	* tech stack? 
+1. projekt tech stack
+	* vert.x
+	* groovy
+	* react.js
+	* docker
+	* ?
 
 1. launch game get method
 	* groovy //learning + fun

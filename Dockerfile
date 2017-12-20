@@ -15,7 +15,7 @@ ENV VERTICLE_NAME hydra-verticle.groovy
 # Set the location of the verticles         <3>
 ENV VERTICLE_HOME /usr/verticles
 
-EXPOSE 8080
+EXPOSE 4321
 
 # Copy your verticle to the container       <4>
 COPY $VERTICLE_NAME $VERTICLE_HOME/
