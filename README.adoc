@@ -25,10 +25,10 @@
 	* javascript ?with webpack / development without server restarts?
 	
 1. websocket communication with game 
-	*sock.js
-	*headless service
-	*replay scenario?
+	* sock.js
+	* headless service
+	* replay scenario?
 
 1. pass request to wallet api
-	*groovy 
-	*pluggable wallet api / separate verticles
+	* groovy 
+	* pluggable wallet api / separate verticles
