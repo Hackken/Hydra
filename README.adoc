@@ -4,7 +4,10 @@
 == Running
 `docker build -t hydra/game .`
 
-`docker run -t -i -p 8080:8080 hydra/game`
+`docker run -t -i -p 4321:4321 hydra/game`
+
+== Running locally
+vertx run src/main/groovy/hydra-verticle.groovy
 
 == TODOs
 
