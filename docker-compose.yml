@@ -1,0 +1,6 @@
+version: '2'
+services:
+  hydra:
+    build: .
+    ports:
+      - "4321:4321"

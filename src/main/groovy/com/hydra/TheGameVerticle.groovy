@@ -2,6 +2,7 @@ package com.hydra
 
 import io.vertx.core.AbstractVerticle
 import io.vertx.ext.web.Router
+import io.vertx.ext.web.handler.StaticHandler
 
 /**
  * @author pawel.szetela
@@ -34,6 +35,8 @@ class TheGameVerticle extends AbstractVerticle{
             // Write to the response and end it
             response.end("!!!Pariplay Hail Hydra !!!")
         })
+
+        router.route().handler(StaticHandler.create().setCachingEnabled(false))
 
         server.requestHandler(router.&accept).listen(4321)
     }
