@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html><head id="j_idt2">
+    <script type="text/javascript" src="/js/lib/jquery-3.2.1-249c6d468aaf3ce7.js"></script>
+    <script type="text/javascript" src="js/mockgame.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/game.css" /></head><body>
+<div id="gameWrapper">
+    <div class="output-area">
+        <div>
+            <label for="playerID">Player ID</label><input id="playerID" class="input-field" />
+            <br />
+            <label for="token">Token</label><input id="token" class="input-field" />
+            <br />
+        </div>
+        <br />
+        <div>
+            <button onclick="LottoGamesApi.sendToken()">Token</button>
+            <button onclick="LottoGamesApi.sendBalance()">Balance</button>
+        </div>
+        <br />
+        <div>
+            <label for="stake">Stake:</label><input id="stake" value="1.0" class="input-field numeric" />
+            <label for="win">Winning:</label><input id="win" value="2.0" class="input-field numeric" />
+            <button onclick="LottoGamesApi.sendDebitCredit()">Play One Round</button>
+        </div>
+    </div>
+    <br />
+    <div class="output-area">
+        <table id="log">
+            <tbody></tbody>
+        </table>
+    </div>
+</div></body>
+</html>

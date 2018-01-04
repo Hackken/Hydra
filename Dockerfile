@@ -19,6 +19,7 @@ EXPOSE 4321
 
 # Copy your verticle to the container       <4>
 COPY target/mock-game-0.0.1-SNAPSHOT.jar $VERTICLE_HOME/
+COPY webroot/ $VERTICLE_HOME/webroot/
 
 # Launch the verticle                       <5>
 WORKDIR $VERTICLE_HOME

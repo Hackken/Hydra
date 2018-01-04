@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'FF Daxline Pro';
+    font-weight: 200;
+    src: url('/fonts/ff-daxline-pro/200/normal.woff2') format("woff2"),
+    url('/fonts/ff-daxline-pro/200/normal.woff') format("woff"),
+    url('/fonts/ff-daxline-pro/200/normal.ttf') format("truetype")
+}
+
+body {
+    background: black url(/img/hydra-flag.jpg) no-repeat fixed center;
+    font-family: 'FF Daxline Pro', sans-serif;
+}
+
+.output-area {
+    background-color: rgba(255, 0, 0, .3);
+    color: rgba(255, 238, 4, 0.9);
+}
+
+.input-field {
+    background-color: rgba(255, 0, 0, .3);
+    color: rgba(255, 238, 4, 0.9);
+    border: 1px solid black;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+.numeric {
+    width: 20px;
+}
