@@ -10,20 +10,24 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
-        <!-- the main class -->
-        <exec.mainClass>com.hydra.TheGame</exec.mainClass>
+        <vertx-version>3.5.0</vertx-version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-core</artifactId>
-            <version>3.4.0</version>
+            <version>${vertx-version}</version>
         </dependency>
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-web</artifactId>
-            <version>3.4.0</version>
+            <version>${vertx-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-web-client</artifactId>
+            <version>${vertx-version}</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
@@ -72,35 +76,6 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-shade-plugin</artifactId>-->
-                <!--<version>2.3</version>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<phase>package</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>shade</goal>-->
-                        <!--</goals>-->
-                        <!--<configuration>-->
-                            <!--<transformers>-->
-                                <!--<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
-                                    <!--<manifestEntries>-->
-                                        <!--<Main-Class>${exec.mainClass}</Main-Class>-->
-                                    <!--</manifestEntries>-->
-                                <!--</transformer>-->
-                                <!--<transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">-->
-                                    <!--<resource>META-INF/services/io.vertx.core.spi.VerticleFactory</resource>-->
-                                <!--</transformer>-->
-                            <!--</transformers>-->
-                            <!--<artifactSet>-->
-                            <!--</artifactSet>-->
-                            <!--<outputFile>${project.build.directory}/${project.artifactId}-${project.version}-fat.jar</outputFile>-->
-                        <!--</configuration>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
         </plugins>
     </build>
 

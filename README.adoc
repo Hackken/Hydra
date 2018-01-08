@@ -9,6 +9,9 @@
 == Running locally
 `vertx run com.hydra.TheGameVerticle -cp target/*`
 
+== Debugging
+export VERTX_OPTS='-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000'
+
 == TODOs
 
 1. move to LL repo

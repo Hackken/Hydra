@@ -1,18 +1,21 @@
 package com.hydra
 
-import groovy.json.JsonOutput
 import io.vertx.core.AbstractVerticle
-import io.vertx.core.Handler
+import io.vertx.core.http.HttpMethod
 import io.vertx.ext.web.Router
-import io.vertx.ext.web.RoutingContext
+import io.vertx.ext.web.handler.BodyHandler
 import io.vertx.ext.web.handler.StaticHandler
 import io.vertx.ext.web.handler.sockjs.SockJSHandler
+
+import java.util.logging.Logger
 
 /**
  * @author pawel.szetela
  * @since 21/12/2017
  */
 class TheGameVerticle extends AbstractVerticle{
+
+    private static final Logger log = Logger.getLogger("TheGameVerticle");
 
     @Override
     void start() throws Exception {
@@ -33,12 +36,10 @@ class TheGameVerticle extends AbstractVerticle{
         createEventBridge(router)
 
         // Register to listen for messages coming IN to the server
-        def eb = vertx.eventBus()
-        eb.consumer("chat.to.server").handler({ message ->
-            def timestamp = java.text.DateFormat.getDateTimeInstance(java.text.DateFormat.SHORT, java.text.DateFormat.MEDIUM).format(java.util.Date.from(java.time.Instant.now()))
-            eb.publish("chat.to.client", "${timestamp}: ${message.body()}")
-        })
-        router.post('/hydra/pariplay/launch/LaunchGame').handler(pariplayLaunchHandler)
+
+        router.route().handler(BodyHandler.create());
+//        router.post('/hydra/pariplay/launch/LaunchGame').handler(new PariplayLaunchHandlers(vertx: vertx).pariplayLaunchHandler)
+        router.route().method(HttpMethod.POST).path("/hydra/pariplay/launch/LaunchGame").handler(new PariplayLaunchHandlers(vertx: vertx).pariplayLaunchHandler)
 
         server.requestHandler(router.&accept).listen(4321)
     }
@@ -47,27 +48,18 @@ class TheGameVerticle extends AbstractVerticle{
         def opts = [
                 inboundPermitteds:[
                         [
-                                address:"chat.to.server"
+                                addressRegex:"hydra\\.game\\.in.*"
                         ]
                 ],
                 outboundPermitteds:[
                         [
-                                address:"chat.to.client"
+                                addressRegex:"hydra\\.game\\.out.*"
                         ]
                 ]
         ]
 
-        def ebHandler = SockJSHandler.create(vertx).bridge(opts)
-        router.route("/eventbus/*").handler(ebHandler)
+        router.route("/eventbus/*").handler(SockJSHandler.create(vertx).bridge(opts))
     }
 
-    Handler<RoutingContext> pariplayLaunchHandler = { routingContext ->
-        def response = routingContext.response()
-        response.putHeader("content-type", "application/json")
 
-        response.end(
-                JsonOutput.toJson([Url: "http://localhost:4321/hydra.html",
-                                   Token: UUID.randomUUID().toString()])
-        )
-    }
 }
